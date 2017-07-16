@@ -1,0 +1,100 @@
+\documentclass[11pt,professionalfonts]{beamer}
+\usefonttheme{serif}
+
+\usepackage{presentation_packages}
+\bibliography{library} % must be in the preamble when using biblatex package
+
+\definecolor{mygray}{gray}{0.9}
+\definecolor{RoyalBlue}{rgb}{0.25,0.41,0.88}
+\def\Emph{\textcolor{RoyalBlue}}
+
+\definecolor{tmp}{rgb}{0.804,0.941,1.0}
+\setbeamercolor{numerical}{fg=black,bg=tmp}
+\setbeamercolor{exact}{fg=black,bg=red}
+
+\mode<presentation> 
+{
+  \usetheme{Warsaw}
+  \usefonttheme{serif}
+  \setbeamercovered{transparent}
+}
+
+\setbeamertemplate{footline}%{split theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fill]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}
+%    \usebeamerfont{title in head/foot}\mypaper\hfill \insertframenumber/\inserttotalframenumber
+    \usebeamerfont{title in head/foot}\hfill \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+} \setbeamercolor{box}{fg=black,bg=yellow}
+
+
+\title[Debugging]{\large \textbf{Fixing imperfect code}}
+
+\author{\vspace*{-0.3cm}}
+
+   
+\institute{
+  \footnotesize
+  {\normalsize\bf{Shankar Kulumani}}\\
+  \vspace*{0.2cm}
+    \textbf{Flight Dynamics \& Control Lab}\\ \vspace*{0.5cm}
+  \begin{figure} %figure%
+        \includegraphics[width=0.75\textwidth]{figures/gw_txh_2cs_pos.pdf}
+    \end{figure}
+}
+\date{}
+
+\begin{document}
+%=======================================================%
+
+\setcounter{framenumber}{-1}
+\begin{frame} %-----------------------------%
+  \titlepage
+\end{frame}   %-----------------------------%
+
+\section*{}
+\subsection*{Debuggin}  
+\begin{frame}{What is debuggin?}
+    \begin{itemize}
+        \item Set of strategies to fix incorrect code
+        \item Guiding principles
+            \begin{itemize}
+                \item Code is never perfect
+                \item Easier to fix smaller pieces seperately
+                \item Need source of good/truth data
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Interactive debugging in Python}
+    \begin{itemize}
+        \item Add the following to the start of your script/module
+            \begin{verbatim}
+                import pdb
+            \end{verbatim}
+        \item Place a ``breakpoint'' where you want the code to stop
+        \item Code is now ``paused'' at the breakpoint
+            \begin{itemize}
+                \item \texttt{s} - step into function/call
+                \item \texttt{n} - next line in current file
+                \item \texttt{l} - list some lines
+                \item \texttt{c} - continue onwards
+            \end{itemize}
+        \item Can now interactively check variables/logic and step through code
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Debugging after crash - Ipython}
+    \begin{itemize}
+        \item Ipython has many useful features - \texttt{\%debug} magic
+            \item Use in interpreter immediately code crashes
+            \item Works exactly the same as \texttt{pdb}
+    \end{itemize}
+\end{frame}
+\end{document}
+
