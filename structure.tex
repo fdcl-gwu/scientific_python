@@ -1,0 +1,168 @@
+\documentclass[11pt,professionalfonts]{beamer}
+\usefonttheme{serif}
+
+\usepackage{presentation_packages}
+\bibliography{library} % must be in the preamble when using biblatex package
+
+\definecolor{mygray}{gray}{0.9}
+\definecolor{RoyalBlue}{rgb}{0.25,0.41,0.88}
+\def\Emph{\textcolor{RoyalBlue}}
+
+\definecolor{tmp}{rgb}{0.804,0.941,1.0}
+\setbeamercolor{numerical}{fg=black,bg=tmp}
+\setbeamercolor{exact}{fg=black,bg=red}
+
+\mode<presentation> 
+{
+  \usetheme{Warsaw}
+  \usefonttheme{serif}
+  \setbeamercovered{transparent}
+}
+
+\setbeamertemplate{footline}%{split theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fill]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}
+%    \usebeamerfont{title in head/foot}\mypaper\hfill \insertframenumber/\inserttotalframenumber
+    \usebeamerfont{title in head/foot}\hfill \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+} \setbeamercolor{box}{fg=black,bg=yellow}
+
+
+\title[Lesson 05 - Structure]{\large \textbf{Structuring your Code}}
+
+\author{\vspace*{-0.3cm}}
+
+   
+\institute{
+  \footnotesize
+  {\normalsize\bf{Shankar Kulumani}}\\
+  \vspace*{0.2cm}
+    \textbf{Flight Dynamics \& Control Lab}\\ \vspace*{0.5cm}
+  \begin{figure} %figure%
+        \includegraphics[width=0.75\textwidth]{figures/gw_txh_2cs_pos.pdf}
+    \end{figure}
+}
+\date{}
+
+\begin{document}
+%=======================================================%
+
+\setcounter{framenumber}{-1}
+\begin{frame} %-----------------------------%
+  \titlepage
+\end{frame}   %-----------------------------%
+
+\section*{}
+\subsection*{Structure}  
+\begin{frame}{Structure of Python Code}
+    \begin{itemize}
+        \item Your Python code is made up of several components
+            \begin{itemize}
+                \item Lines of variables/evaluations
+                \item Functions - several lines which achieve a single purpose
+                \item Modules - several related functions (file) 
+                \item Packages - several related modules (directory)
+            \end{itemize}
+        \item It helps to create a standard structure so your code is organized and easy to use and modify
+        \item Also much of the automated testing and other features depend on a clear structure for you code
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Basic Structure Example}
+    \begin{itemize}
+        \item The \texttt{astro} library is a good example of the basic structure
+    \end{itemize}
+    \begin{verbatim}
+        README.md
+        driver.py
+        package_a
+            __init__.py
+            module_a.py
+            module_b.py
+        package_b
+            __init__.py
+            module_a.py
+        tests
+            __init__.py
+            test_package_a.py
+            test_package_b.py
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}{Structure of Code is Key}
+    \begin{itemize}
+        \item Avoid Circular dependencies - modules and packages should try to be independent
+        \item Hidden coupling - making a small change breaks many other functions/tests
+        \item Passing variables instead of globals - many objects can modify a global variable
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Modules}
+    \begin{itemize}
+        \item One of the main abstraction layers - seperate code into parts holding related data and functionality
+            \begin{itemize}
+                \item One layer might handle user input 
+                \item Another layer handles low-level data manipulation
+                \item Group each into seperate files
+                \item Python \texttt{import} and \texttt{from ... import} statements
+            \end{itemize}
+        \item Module names should be short, lowercase, and avoid special symbols
+            \begin{itemize}
+                \item Nothing else special is required - it's just a file with a fancy name now
+                \item Python will search for the file - and make it available using the \texttt{import} statement
+            \end{itemize}
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Best Practices}
+Very Bad
+\begin{verbatim}
+[...]
+from modu import *
+[...]
+x = sqrt(4) # where did sqrt come from?
+\end{verbatim}
+\pause
+Better
+\begin{verbatim}
+from modu import sqrt
+[...]
+x = sqrt(4) # sqrt might be part of modu, if not redefined inbetween
+\end{verbatim}
+\pause
+Best
+\begin{verbatim}
+import modu
+[...]
+x = modu.sqrt(4) # sqrt is visibly part of modu
+\end{verbatim}
+
+\pause
+\begin{alertblock}{}
+    \centering
+Readability and Clarity are important
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Packages}
+    \begin{itemize}
+        \item Packages are a simple extension to modules
+        \item Just place an empty file named \texttt{\_\_init\_\_.py} in a directory
+        \item Same import structure as modules
+    \end{itemize}
+
+    Convienent syntax for deeply nested packages
+    \begin{verbatim}
+        import very.deep.module as mod
+    \end{verbatim}
+\end{frame}
+
+\end{document}
+
