@@ -1,0 +1,107 @@
+\documentclass[11pt,professionalfonts]{beamer}
+\usefonttheme{serif}
+
+\usepackage{presentation_packages}
+\bibliography{library} % must be in the preamble when using biblatex package
+
+\definecolor{mygray}{gray}{0.9}
+\definecolor{RoyalBlue}{rgb}{0.25,0.41,0.88}
+\def\Emph{\textcolor{RoyalBlue}}
+
+\definecolor{tmp}{rgb}{0.804,0.941,1.0}
+\setbeamercolor{numerical}{fg=black,bg=tmp}
+\setbeamercolor{exact}{fg=black,bg=red}
+
+\mode<presentation> 
+{
+  \usetheme{Warsaw}
+  \usefonttheme{serif}
+  \setbeamercovered{transparent}
+}
+
+\setbeamertemplate{footline}%{split theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fill]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}
+%    \usebeamerfont{title in head/foot}\mypaper\hfill \insertframenumber/\inserttotalframenumber
+    \usebeamerfont{title in head/foot}\hfill \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+} \setbeamercolor{box}{fg=black,bg=yellow}
+
+
+\title[Unit Testing]{\large \textbf{Unit Testing - how do I make sure my code is actually correct}}
+
+\author{\vspace*{-0.3cm}}
+
+   
+\institute{
+  \footnotesize
+  {\normalsize\bf{Shankar Kulumani}}\\
+  \vspace*{0.2cm}
+    \textbf{Flight Dynamics \& Control Lab}\\ \vspace*{0.5cm}
+  \begin{figure} %figure%
+        \includegraphics[width=0.75\textwidth]{figures/gw_txh_2cs_pos.pdf}
+    \end{figure}
+}
+\date{}
+
+\begin{document}
+%=======================================================%
+
+\setcounter{framenumber}{-1}
+\begin{frame} %-----------------------------%
+  \titlepage
+\end{frame}   %-----------------------------%
+
+\section*{}
+\subsection*{Testing}  
+\begin{frame}{Testing your code}
+    \begin{alertblock}{}
+        \centering 
+        Testing your code is very important \\
+        Testing and running code in parallel
+    \end{alertblock}
+    \pause
+    \begin{itemize}
+        \item Testing unit should focus on one tiny bit of functionaility and prove it correct
+        \item Each test should be fully independent
+        \item Tests should run fast
+        \item Run your tests before, during and after your development
+        \item Write long, descriptive names for test functions
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Testing framework}
+    \begin{itemize}
+        \item Python has many frameworks available - handle all the complicated stuff
+        \item \texttt{pytest} - very simple and easy to use
+    \end{itemize}
+    \begin{verbatim}
+        import numpy
+
+        def func(a, b):
+            return a+b
+
+        def test_func():
+            numpy.testing.assert_allclose(func(1, 2), 3)
+
+    \end{verbatim}
+    \pause
+    \begin{alertblock}{}
+        Now just run \texttt{pytest} in terminal
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Guidelines}
+    \begin{itemize}
+        \item Every function/branch requires atleast one test case
+        \item Verify the tests using hand calculations/textbook examples
+        \item Test while coding
+    \end{itemize}
+\end{frame}
+\end{document}
+
