@@ -1,0 +1,148 @@
+\documentclass[11pt,professionalfonts]{beamer}
+\usefonttheme{serif}
+
+\usepackage{presentation_packages}
+\bibliography{library} % must be in the preamble when using biblatex package
+
+\definecolor{mygray}{gray}{0.9}
+\definecolor{RoyalBlue}{rgb}{0.25,0.41,0.88}
+\def\Emph{\textcolor{RoyalBlue}}
+
+\definecolor{tmp}{rgb}{0.804,0.941,1.0}
+\setbeamercolor{numerical}{fg=black,bg=tmp}
+\setbeamercolor{exact}{fg=black,bg=red}
+
+\mode<presentation> 
+{
+  \usetheme{Warsaw}
+  \usefonttheme{serif}
+  \setbeamercovered{transparent}
+}
+
+\setbeamertemplate{footline}%{split theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fill]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}
+%    \usebeamerfont{title in head/foot}\mypaper\hfill \insertframenumber/\inserttotalframenumber
+    \usebeamerfont{title in head/foot}\hfill \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+} \setbeamercolor{box}{fg=black,bg=yellow}
+
+
+\title[Functions]{\large \textbf{Functions in Python}}
+
+\author{\vspace*{-0.3cm}}
+
+   
+\institute{
+  \footnotesize
+  {\normalsize\bf{Shankar Kulumani}}\\
+  \vspace*{0.2cm}
+    \textbf{Flight Dynamics \& Control Lab}\\ \vspace*{0.5cm}
+  \begin{figure} %figure%
+        \includegraphics[width=0.75\textwidth]{figures/gw_txh_2cs_pos.pdf}
+    \end{figure}
+}
+\date{}
+
+\begin{document}
+%=======================================================%
+
+\setcounter{framenumber}{-1}
+\begin{frame} %-----------------------------%
+  \titlepage
+\end{frame}   %-----------------------------%
+
+\section*{}
+\subsection*{Functions}  
+\begin{frame}{What is a function?}
+    \begin{itemize}
+        \item Series of evaluations with defined inputs adn outputs
+        \item Allows for code to be organized
+        \item Deterministic - fixed input gives a fixed output
+        \item Easier to test
+        \item Easier to manipulate and use - efficient building block for more complex programs
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Built-in Functions}
+    \begin{itemize}
+        \item Before using a funciton you must either define it or import it into Python
+        \item Read the documentation of a function to understand what to use it - inside Ipython
+            \begin{verbatim}
+            import numpy
+            numpy.sin?
+        \end{verbatim}
+    \item Calling a function is easy - \texttt{out = function(in)}
+    \item Many already built into Python - others inside packages (Numpy, Scipy, your own, etc.)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}\frametitle{How do you write a function?}
+    \begin{itemize}
+        \item Functions can be written in any text editor
+        \item Only need to use spaces (instead of Tabs)
+        \item Best to have a ``good'' editor
+            \begin{itemize}
+                \item Automatic indentation - very important in Python
+                \item Syntax highlighting - pretty colors
+                \item Autocompletion - for the lazy
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Example Function}
+\begin{verbatim}
+def function_name(input_1, input_2):
+    """Documentation
+
+    """
+
+    output_1 = input_1
+    output_2 = input_2
+
+    return output_1, output_2
+
+output_1, output_2 = function_name(input_1, input_2)
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}{Function scope}
+    \begin{itemize}
+        \item Variable available inside of a function
+            \begin{itemize}
+                \item Inputs passed into functions
+                \item Module level variables
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Script vs. Function}
+    \begin{itemize}
+        \item Function requires inputs - must be called properly
+        \item Scripts - can be run interactively
+        \item Variables available to interactive interpreter
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Example Function}
+    \begin{itemize}
+        \item Write a function that converts fahrenheight to celsius
+        \item Write a function that converts celsius to fahrenheit
+        \item Write unit tests for both
+    \end{itemize}
+
+    \begin{align}
+        F &= 1.8 C + 32 \\
+        C &= \frac{F - 32}{1.8}
+    \end{align}
+\end{frame}
+\end{document}
+
