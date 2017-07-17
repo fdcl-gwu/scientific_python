@@ -58,8 +58,8 @@
 \end{frame}   %-----------------------------%
 
 \section*{}
-\subsection*{Debuggin}  
-\begin{frame}{What is debuggin?}
+\subsection*{Debugging}  
+\begin{frame}{What is debugging?}
     \begin{itemize}
         \item Set of strategies to fix incorrect code
         \item Guiding principles
@@ -78,7 +78,10 @@
                 import pdb
             \end{verbatim}
         \item Place a ``breakpoint'' where you want the code to stop
-        \item Code is now ``paused'' at the breakpoint
+            \begin{verbatim}
+                pdb.set_trace()
+            \end{verbatim}
+        \item Try to run your code - now ``paused'' at the breakpoint
             \begin{itemize}
                 \item \texttt{s} - step into function/call
                 \item \texttt{n} - next line in current file
@@ -92,8 +95,8 @@
 \begin{frame}{Debugging after crash - Ipython}
     \begin{itemize}
         \item Ipython has many useful features - \texttt{\%debug} magic
-            \item Use in interpreter immediately code crashes
-            \item Works exactly the same as \texttt{pdb}
+            \item Use in interpreter immediately after code crashes
+            \item Works exactly the same as \texttt{pdb} - but let's you now use Ipython
     \end{itemize}
 \end{frame}
 \end{document}
