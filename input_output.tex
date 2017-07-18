@@ -58,6 +58,34 @@
 \end{frame}   %-----------------------------%
 
 \section*{}
-\subsection*{Variables}  
+\subsection*{Reading Data}  
+\begin{frame}{Why import/export?}
+\begin{itemize}
+    \item Most data will not be ``hard-coded'' into your programs
+        \begin{itemize}
+            \item Data from observations to process
+            \item Data from models to export and analyze
+        \end{itemize}
+    \item Allow for multiuse programs by reading in data from the user - interaction
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Getting data from the user}
+    \begin{itemize}
+        \item Prompt the user to input data
+        \begin{verbatim}
+        a = input("What is the first number? ")
+        b = input("What is the second number? ")
+
+        a = int(a)
+        b = int(b)
+        \end{verbatim}
+    \item Input data is converted to a string - you can convert it to a different data type as desired
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Importing text from files}
+    
+\end{frame}
 \end{document}
 
