@@ -84,8 +84,143 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Importing text from files}
+\begin{frame}[fragile]{Importing text from files}
+    \begin{itemize}
+        \item First must ``open'' the file for reading
+\begin{verbatim}
+file = open("filename.txt", "r")
+\end{verbatim}
+        \item There are many ways to read a text file in Python
+            \begin{itemize}
+                \item Reading data by the line - Useful for sequential data (tracking station data)
+\begin{verbatim}
+print(file.readline()) 
+\end{verbatim}
+                \item Read a big block of data - Processing data for analysis (missle intercept data)
+\begin{verbatim}
+print(file.read())
+\end{verbatim}
     
+            \end{itemize}
+        \item After reading we must ``close'' the file
+            \begin{verbatim}
+file.close()
+            \end{verbatim}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Opening a file}
+    \begin{itemize}
+        \item Before reading/writing to a file it must be opened
+        \item This will create a file object which we can then operate on
+            \begin{verbatim}
+file_object = open("filename", "mode")
+            \end{verbatim}
+        \item Several ways to open a file
+            \begin{itemize}
+                \item \texttt{'r'} - Read mode which the file is only read
+                \item \texttt{'w'} - Wirte mode which is used to edit and write new data - will erase whatever is in \texttt{"filename"}
+                \item \texttt{'a'} - Append mode which is used to add data to the end of the file
+                \item \texttt{'r+'} - Read and write mode - both combined into one
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Reading by line}
+    \begin{itemize}
+        \item Can use a loop to read a file line by line and print the output
+            \begin{verbatim}
+file = open("testfile.txt", 'r')
+for line in file:
+    print(line)
+file.close()
+            \end{verbatim}
+        \item Convienent to use the \texttt{with} statement
+            \begin{verbatim}
+with open("testfile.txt", 'r') as file:
+    for line in file:
+        print(line)
+            \end{verbatim}
+        \item \texttt{with} will automatically close the file for us
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exporting data}
+    \begin{itemize}
+        \item After performing calculations we'd like to have a way to save the results to a file for later use
+        \item Two different ways to save file - among many, many others
+            \begin{itemize}
+                \item Write to text files
+                \item Save to a \texttt{numpy} file 
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Writing text to a file}
+    \begin{itemize}
+        \item Can write strings to a text file
+            \begin{verbatim}
+with open("textfile.txt", 'a') as file:
+    file.write("This is a string")
+    file.write("Here is another string")
+            \end{verbatim}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Writing to a data file}
+    \begin{itemize}
+        \item We can save data ``as-is'' for later use
+        \item Preserve arrays/lists etc
+            \begin{verbatim}
+import numpy as np
+a = np.arange(10)
+b = np.arange(100)
+np.save("outfile", (a, b))
+            \end{verbatim}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exercise: Import and export data}
+    \begin{itemize}
+        \item There is a file caled \texttt{vector.txt} 
+            \begin{itemize}
+                \item 6 numbers which represent 3 position and 3 velocity components all in a single line
+            \end{itemize}
+        \item Write a function \texttt{getposvel} that will:
+            \begin{itemize}
+                \item Import the first three numbers into a position array
+                \item Import last three numbers into a velocity array
+                \item Inputs: filename to open, Outputs: \texttt{pos, vel} the output arrays
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exercise: Testing}
+    \begin{itemize}
+        \item Your code should be tested. 
+            It should at a minimum pass the following unit tests
+    \begin{verbatim}
+def test_getposvec_array_sizes():
+    pos, vel = getposvec('vector.txt')
+    np.testing.assert_allclose(pos.shape, (3,))
+    np.testing.assert_allclose(vel.shape, (3,))
+    \end{verbatim}
+    \item Determine what other tests you need to verify your function
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exercise: Output}
+    \begin{itemize}
+        \item Write a function \texttt{writevec} that will:
+            \begin{itemize}
+                \item Create a \texttt{*.txt} file with the user's desired name
+                \item Label the components of a vector with the user's choice 
+                \item Write the components of a vector, with label to a the text file (x, y, z or i, j, k, etc)
+                \item Inputs: filename, vector, array of labels
+                \item Outputs: Success or failure flag
+            \end{itemize}
+    \end{itemize}
 \end{frame}
 \end{document}
 
