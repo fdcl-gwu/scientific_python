@@ -18,7 +18,9 @@ These aren't in any specific order, but this seems to make some sense:
 * [Input/Output](input_output.pdf)
 * [Documentation](documentation.pdf)
 * [Debugging](debugging.pdf)
-* [Algorithms](algorithms.pdf)
+* [Algorithms][1]
+
+[1]: https://docs.google.com/viewer?url=${https://github.com/fdcl-gwu/scientific_python/raw/master/algorithms.pdf}
 
 ## Other Good resources
 
