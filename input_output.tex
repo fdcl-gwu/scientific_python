@@ -96,7 +96,7 @@ file = open("filename.txt", "r")
 \begin{verbatim}
 print(file.readline()) 
 \end{verbatim}
-                \item Read a big block of data - Processing data for analysis (missle intercept data)
+                \item Read a big block of data - Processing data for analysis (missile intercept data)
 \begin{verbatim}
 print(file.read())
 \end{verbatim}
@@ -119,7 +119,7 @@ file_object = open("filename", "mode")
         \item Several ways to open a file
             \begin{itemize}
                 \item \texttt{'r'} - Read mode which the file is only read
-                \item \texttt{'w'} - Wirte mode which is used to edit and write new data - will erase whatever is in \texttt{"filename"}
+                \item \texttt{'w'} - Write mode which is used to edit and write new data - will erase whatever is in \texttt{"filename"}
                 \item \texttt{'a'} - Append mode which is used to add data to the end of the file
                 \item \texttt{'r+'} - Read and write mode - both combined into one
             \end{itemize}
@@ -153,6 +153,10 @@ with open("testfile.txt", 'r') as file:
             \begin{itemize}
                 \item Write to text files
                 \item Save to a \texttt{numpy} file 
+                \item Save to a \texttt{*.dat} file (in case you want to read the data in Matlab later) 
+                % This was helpful to me when I was working with Mahdis since she had her whole code 
+                % already written in Matlab. It was much convenient for her to read from a dat file 
+                % rather than writing a new function to read from a text file.
             \end{itemize}
     \end{itemize}
 \end{frame}
@@ -183,7 +187,7 @@ np.save("outfile", (a, b))
 
 \begin{frame}{Exercise: Import and export data}
     \begin{itemize}
-        \item There is a file caled \texttt{vector.txt} 
+        \item There is a file called \texttt{vector.txt} 
             \begin{itemize}
                 \item 6 numbers which represent 3 position and 3 velocity components all in a single line
             \end{itemize}
