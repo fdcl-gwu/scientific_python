@@ -58,6 +58,40 @@
 \end{frame}   %-----------------------------%
 
 \section*{}
-\subsection*{Terminal}  
+\subsection*{Python Interpreter}  
+\begin{frame}{Python Interactively}
+    \begin{itemize}
+        \item Python is an interpreted language - you can write and run code interactively
+        \item Just try typing \texttt{python} at the Terminal
+    \end{itemize}
+    \includegraphics[width=\textwidth]{figures/python_interpreter.png}
+\end{frame}
+
+\begin{frame}{Python interpreter}
+    \begin{itemize}
+        \item Can write and run code directly here
+        \item Doesn't offer some things that are very useful
+            \begin{itemize}
+                \item No autocompletion
+                \item Debugging when there are errors
+                \item Reading documentation or help from functions
+            \end{itemize}
+        \item There is a better way by using \texttt{ipython} - just another interpreter with some useful benefits
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{ipython}}
+    \begin{itemize}
+    \item There is a lot of functionality - read the \href{http://ipython.readthedocs.io/en/stable/}{Documentation}
+    \item Helpful Commands:
+        \begin{itemize}
+            \item Use tab for autocompletion - works by default
+            \item \texttt{object?} - print details/help about an object
+            \item \texttt{\%run script} - run your Python script
+            \item \texttt{\%debug} - enter debugging after a crash
+        \end{itemize}
+    \item Using \texttt{ipython} and an editor gives you everything needed to write and run Python code
+\end{itemize}
+\end{frame}
 \end{document}
 
