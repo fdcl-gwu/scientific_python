@@ -59,5 +59,78 @@
 
 \section*{}
 \subsection*{Implicit Equations}  
+
+\begin{frame}{Why?}
+\begin{itemize}
+    \item Frequently you'll encounter transcendental equations - cannot be solved analytically
+    \item However, you can still get a numerical solution using an iterative method
+    \item One common problem in astro - solving Kepler's problem
+        \begin{equation*}
+            \nu_i \to E_i \to M_i \to M_f \to E_f \to \nu_f
+        \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Iteration}
+    \begin{itemize}
+        \item Problem occurs in going from \( M_f \) to \( E_f\)
+            \begin{align*}
+                M_f &\to E_f \\
+                M_f &= E_f - e \sin E_f
+            \end{align*}
+        \item There's no way to directly solve for \( E_f \) given \( M_f, e\)
+        \item Instead we'll use Newton's method to find an approximate solution
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Newton's Method}
+    \begin{itemize}
+        \item Find the root, or zero, of a function
+        \item Given: \( f(x) \) 
+        \item Want: \( x_f \) such that \( f(x_f) = 0 \)
+        \item Solution approach:
+            \begin{itemize}
+                \item Guess a value \( x_0 \) that's close to the true answer
+                \item Improve our guess \( x_1 = x_0 - \frac{f(x_0)}{f^{\prime}(x_0)}\)
+                \item Repeat until ``close'' enough
+                    \begin{align*}
+                        x_{n+1} = x_n - \frac{f(x_n)}{f^{\prime}(x_n)}
+                    \end{align*}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Implement for Kepler's Problem}
+    \begin{itemize}
+        \item For our problem
+            \begin{align*}
+                f(E) &= M - (E - e \sin E) \\
+                f^{\prime}(E) &= - ( 1 - e \cos E)
+            \end{align*}
+        \item So for our problem, our iteration method becomes
+            \begin{align*}
+                E_{n+1} = E_n  + \frac{M - (E - e \sin E)}{1 - e \cos E}
+            \end{align*}
+        \item What is a good initial guess? - Usually \( M \approx E \) so using \( M_f \) is a good guess
+        \item Make sure you use radians or else the answers will be wrong!
+        \item When do we stop? - look at the difference in \( E_{n+1} \) and \( E_n \)
+\begin{verbatim}
+    while np.absolute(Enext - Eprev) < 1e-8:
+        loop
+    \end{verbatim}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example - Write a function to solve this!}
+    \begin{itemize}
+        \item Given: \( M_f = \SI{1.5}{\radian} \) and \( e = 0.1 \)
+        \item Find: \( E_f\)
+        \item How should we test?
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{figures/kepler_eq.pdf}
+    \end{figure}
+\end{frame}
 \end{document}
 
