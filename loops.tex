@@ -33,7 +33,7 @@
 } \setbeamercolor{box}{fg=black,bg=yellow}
 
 
-\title[Loops]{\large \textbf{Repeating commands smarter}}
+\title[Loops and Conditionals]{\large \textbf{Repeating commands smarter}}
 
 \author{\vspace*{-0.3cm}}
 
@@ -58,6 +58,79 @@
 \end{frame}   %-----------------------------%
 
 \section*{}
-\subsection*{Variables}  
+\subsection*{Logic}  
+\begin{frame}[fragile]{Logical Expression}
+    \begin{itemize}
+        \item Equations or terms that are either true or false
+        \item Used frequently in loops or conditional statements
+        \item Typically used to compare two things
+    \begin{verbatim}
+    x < y 
+    x <= y
+    x == y
+    x >= y
+    x > y
+    x != y
+    \end{verbatim}
+\item Be careful with numerical precision \texttt{4.99999 == 5.000001}?
+\item Sometimes better to use - \texttt{np.absolute(x - y) < 1e-6}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Logical Expression}
+    \begin{itemize}
+        \item We also have other logical comparisons 0 \texttt{and, or, not }
+        \item Try some of the following in the terminal
+    \begin{verbatim}
+    True and False
+    False and True
+    (5 < 6) and (6 < 8)
+    \end{verbatim}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Conditional Statements}
+    \begin{itemize}
+        \item Allows for your code to branch
+        \item Uses \texttt{if} and \texttt{else} statements
+    \begin{verbatim}
+    if logical_expression:
+        do somethign
+    elif logical_expression:
+        do somethign else
+    else:
+        do the rest
+    \end{verbatim}
+    \end{itemize}
+\end{frame}
+
+\section*{}
+\subsection*{Loops}
+
+\begin{frame}[fragile]{Loops}
+    \begin{itemize}
+        \item There are two basic kinds of loops, \texttt{for} and \texttt{while}
+        \item \texttt{for} loops: let us repeat statements a fixed number of times
+    \begin{verbatim}
+    array = np.arange(0, 100, 1)
+    for val in array:
+        print(val)
+    \end{verbatim}
+        \item Can loop over any \texttt{iterable} item - lists, arrrays, etc.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{While loop}
+    \begin{itemize}
+        \item Loop until a condition is no longer true
+    \begin{verbatim}
+    x = 0
+    while x < 10:
+        print(x)
+        x = x + 1
+    \end{verbatim}
+        \item Be careful about the logic - you can create infinite loops
+    \end{itemize}
+\end{frame}
 \end{document}
 
