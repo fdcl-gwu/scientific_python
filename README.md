@@ -13,12 +13,21 @@ It is based on much of my experience/notes from Astro 201/321 at USAFA, as well 
 
 These aren't in any specific order, but this seems to make some sense:
 
+* [Introduction][7]
 * [Installation][2]
+* [Variables][15]
 * [Functions][3]
+* [Code Structure][12]
 * [Input/Output][ 4 ]
 * [Documentation][5]
 * [Debugging][6]
 * [Algorithms][1]
+* [Ipython][8]
+* [Newton's Method][9]
+* [Loops][10]
+* [Plotting][11]
+* [Testing][13]
+* [Validating Code][14]
 
 [1]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/algorithms.pdf
 [2]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/installation.pdf
@@ -26,6 +35,14 @@ These aren't in any specific order, but this seems to make some sense:
 [4]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/input_output.pdf
 [5]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/documentation.pdf
 [6]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/debugging.pdf
-
+[7]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/introduction.pdf
+[8]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/ipython.pdf
+[9]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/iterative_newton.pdf
+[10]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/loops.pdf
+[11]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/plotting.pdf
+[12]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/structure.pdf
+[13]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/testing.pdf
+[14]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/validating.pdf
+[15]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/variables.pdf
 ## Other Good resources
 * [Algorithms in Python](http://multimedia.ucc.ie/Public/training/cycle1/algorithms-in-python.pdf)
