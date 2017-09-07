@@ -45,7 +45,6 @@ It is based on much of my experience/notes from Astro 201/321 at USAFA, as well 
 
 ## Other Good resources
 
-* [Algorithms in Python](http://multimedia.ucc.ie/Public/training/cycle1/algorithms-in-python.pdf)
 * [SciPy Lecture Notes](http://www.scipy-lectures.org/index.html)
 * [Numpy for Matlab users](https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html)
 * [Scipy Tutorials](https://docs.scipy.org/doc/scipy/reference/tutorial/index.html)
