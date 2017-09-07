@@ -6,12 +6,10 @@ The focus is simultaneously:
 1. Gain some skills with Python
 2. Learn best practices for writing/debugging/testing code for engineering courses/applications.
 
-This is not a comprhensive introduction to Python, but rather covers most of the critical skills needed by students in engineering courses.
+This is not a comprehensive introduction to Python, but rather covers most of the critical skills needed by students in engineering courses.
 It is based on much of my experience/notes from Astro 201/321 at USAFA, as well as the experiences since then in graduate school/Air Force Research Laboratory.
 
 ## Lessons
-
-These aren't in any specific order, but this seems to make some sense:
 
 * [Introduction][7]
 * [Installation][2]
@@ -44,5 +42,12 @@ These aren't in any specific order, but this seems to make some sense:
 [13]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/testing.pdf
 [14]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/validating.pdf
 [15]: https://docs.google.com/viewer?url=https://github.com/fdcl-gwu/scientific_python/raw/master/variables.pdf
+
 ## Other Good resources
+
 * [Algorithms in Python](http://multimedia.ucc.ie/Public/training/cycle1/algorithms-in-python.pdf)
+* [SciPy Lecture Notes](http://www.scipy-lectures.org/index.html)
+* [Numpy for Matlab users](https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html)
+* [Scipy Tutorials](https://docs.scipy.org/doc/scipy/reference/tutorial/index.html)
+* [Plotting Tutorial](http://matplotlib.org/users/beginner.html)
+
