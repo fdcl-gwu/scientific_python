@@ -105,10 +105,21 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Testing Example}
+\begin{frame}[fragile]{Testing Example}
     \begin{itemize}
         \item Now we'll practice unit testing in Python
     \end{itemize}
+    \begin{verbatim}
+# content of test_sample.py
+import numpy as np
+
+def inc(x):
+    return x + 1
+
+def test_answer():
+    np.testing.assert_equal(inc(3), 5)
+
+    \end{verbatim}
 \end{frame}
 \end{document}
 
